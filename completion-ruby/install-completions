@@ -1,0 +1,10 @@
+#! /bin/bash 
+
+COMMANDS="bundle gem rails rake ruby"
+
+chown root:root completion*
+
+for cmd in $COMMANDS; do 
+  install -vm644 completion-${cmd} /usr/share/bash-completion/completions/${cmd}
+done
+
