@@ -1,0 +1,51 @@
+#2010-16 tiagobrait
+[user]
+  name =
+  email =
+#  signingkey = if you use GPG, put your PK id here
+[core]
+  editor = vim
+  pager = /usr/bin/less -R
+[merge]
+  tool = vimdiff
+[alias]
+  lp = log --patch
+  lg = log --graph
+  lgo = log --graph
+  lgp = log --graph --patch
+  lol = log --oneline
+  lds = log --stat
+  ds = diff --stat
+  st = status
+  sts = stash
+  co = checkout
+  ci = commit
+  br = branch
+  df = diff
+  mg = merge
+  dfc = diff --cached
+  dfh = diff HEAD
+[push]
+  default = simple
+[color]
+  pager = true
+  ui = true
+[color "diff"]
+  plain = normal
+  meta = bold normal
+  frag = magenta
+  func = green
+  old = red
+  new = blue
+  commit = yellow
+[color "status"]
+  header = normal
+  added = green
+  changed = blue
+  untracked = red
+  branch = magenta
+[color "decorate"]
+  HEAD = blue
+  branch =  magenta
+  remoteBranch = red
+  tag = green
