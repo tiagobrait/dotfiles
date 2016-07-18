@@ -1,28 +1,30 @@
-#2010-16 tiagobrait
 [user]
-  name =
-  email =
-#  signingkey = if you use GPG, put your PK id here
+  name = {NAME}
+  email = {EMAIL}
+  signingkey = {KEY}
 [core]
-  editor = vim
-  pager = /usr/bin/less -R
+  editor = {EDITOR}
+  pager = {PAGER}
 [merge]
-  tool = vimdiff
+  tool = {DIFFTOOL}
 [alias]
-  lp = log --patch
-  lg = log --graph
-  lgo = log --graph
-  lgp = log --graph --patch
-  lol = log --oneline
-  lds = log --stat
-  ds = diff --stat
+  a = add
+  aa = add .
+  lp = log --patch --color=always
+  lg = log --graph --color=always
+  lgo = log --graph --oneline --color=always
+  lgp = log --graph --patch --color=always
+  lol = log --oneline --color=always
+  lds = log --stat --color=always
+  ds = diff --stat --color=always
   st = status
   sts = stash
   co = checkout
   ci = commit
   br = branch
-  df = diff
+  df = diff --color=always
   mg = merge
+  re = remote
   dfc = diff --cached
   dfh = diff HEAD
 [push]
