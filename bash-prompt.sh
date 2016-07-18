@@ -62,7 +62,7 @@ __set_prompts_nocolor(){
 }
 
 case ${TERM} in
-  xterm*|rxvt*|aterm|kterm|gnome*|linux*|Eterm|screen)
+  uxterm*|xterm*|rxvt*|aterm*|st*|kterm|gnome*|linux*|Eterm|screen)
     export PROMPT_COMMAND="__set_prompts"
       ;;
   *)

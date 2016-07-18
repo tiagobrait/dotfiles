@@ -5,8 +5,8 @@
 
 if [ $(id -u) = "0"  ]; then
 
-    #use loginctl to get the info we need instead of who 
-    
+    #use loginctl to get the info we need instead of who
+
     #find out what session is active
     active_session=''
     for curr_session in $(loginctl --no-pager --no-legend list-sessions | awk '{print $1}'); do
@@ -19,7 +19,7 @@ if [ $(id -u) = "0"  ]; then
     eval $(loginctl show-session -p Display -p User $active_session)
     user_home=$(getent passwd $User | cut -f6 -d:)
     [[ ! -z $user_home ]] && xauth merge ${user_home}/.Xauthority && export DISPLAY=$Display
-    
+
     #does not work for arch anymore, too lazy to find out why
     #xline=$(who | egrep ':[0-9]+' | head -n1)
     #xuser=$(echo $xline | cut -f1 -d\ )
