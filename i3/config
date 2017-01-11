@@ -1,0 +1,205 @@
+#i3 configuration
+#2014 Tiago Brait
+
+# set modifier to Super (Windows) Key
+set $mod Mod4
+
+# nice pretty font
+font pango:DejaVu Sans Mono bold  10
+
+# set dragging modifier to the same as 'normal' one
+floating_modifier $mod
+
+# set floating windows borders a little bit thicker
+new_float pixel 4
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+KP_Enter exec --no-startup-id i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+#dmenu launcher
+bindsym $mod+d exec rofi -show run
+bindsym $mod+z exec rofi -show window
+bindsym $mod+x exec rofi -show ssh
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ccedilla focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ccedilla move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# set container splitting
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+workspace "1: www" output LVDS
+workspace "2: code" output LVDS
+workspace "3: vbox" output LVDS
+workspace "4: misc" output LVDS
+workspace "6: test" output CRT1
+workspace "7: www2" output CRT1
+# switch to workspace
+bindsym $mod+1 workspace 1: www
+bindsym $mod+2 workspace 2: code
+bindsym $mod+3 workspace 3: vbox
+bindsym $mod+4 workspace 4: misc
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6: test
+bindsym $mod+7 workspace 7: www2
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1: www
+bindsym $mod+Shift+2 move container to workspace 2: code
+bindsym $mod+Shift+3 move container to workspace 3: vbox
+bindsym $mod+Shift+4 move container to workspace 4: misc
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace 6: test
+bindsym $mod+Shift+7 move container to workspace 7: www2
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ccedilla resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# i3bar stuff
+bar {
+  tray_output LVDS
+        status_command i3status
+        position top
+        font pango:FontAwesome Bold 10
+  colors {
+    separator #666666
+    background #222222
+    statusline #dddddd
+    focused_workspace #0088CC #0088CC #ffffff
+    active_workspace #333333 #333333 #ffffff
+    inactive_workspace #333333 #333333 #888888
+    urgent_workspace #2f343a #900000 #ffffff
+  }
+}
+
+
+bindsym $mod+period move workspace to output right
+bindsym $mod+comma move workspace to output left
+#browser button
+bindsym XF86HomePage exec /usr/bin/chromium
+bindsym $mod+g exec /usr/bin/gvim
+#volume control
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 1%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 1%+
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+
+#lock the screen
+bindsym $mod+BackSpace exec --no-startup-id /usr/bin/xscreensaver-command --lock
+bindsym $mod+c exec --no-startup-id /usr/bin/zenity --calendar
+bindsym XF86Calculator exec --no-startup-id /usr/bin/qalculate-gtk
+bindsym XF86Tools exec /usr/bin/chromium https://deezer.com
+bindsym XF86Search exec /usr/bin/chromium https://google.com
+bindsym XF86Mail exec /usr/bin/chromium https://gmail.com
+#This is used to get a ssh-add prompt floating when i3 starts
+#It is done launching a xterm with a custom window class
+for_window [class="ssh_add_prompt"] floating enable
+for_window [class="^Spotify$"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
+#for_window [title="^.+\[.+\] - Oracle VM VirtualBox"] floating enable
+#window assignments
+assign [instance="claws-mail" class="Claws-mail"] 1: www
+assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd" class="Chromium"] 1: www
+assign [class="Clementine"] 1: www
+
+#exec --no-startup-id /usr/bin/compton
+exec --no-startup-id /usr/bin/xscreensaver -no-splash
+
+#some housekeeping
+#exec --no-startup-id start-pulseaudio-x11
+
+#autostart apps
+exec --no-startup-id  ~/.fehbg
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/twmnd
+#exec --no-startup-id /usr/bin/wicd-gtk -t
+#exec --no-startup-id /usr/bin/copyq
+exec --no-startup-id /usr/bin/parcellite
+exec --no-startup-id /usr/bin/screencloud
+exec --no-startup-id ~/bin/ssh-add-prompt
+exec --no-startup-id i3-msg 'workspace 1: www'
+exec --no-startup-id i3-msg 'layout tabbed'
+
+client.focused #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused #333333 #333333 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000

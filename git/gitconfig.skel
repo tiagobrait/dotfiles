@@ -5,19 +5,24 @@
 [core]
   editor = {EDITOR}
   pager = {PAGER}
+[diff]
+  tool = {DIFTOOL}
 [merge]
-  tool = {DIFFTOOL}
+  tool = {DIFTOOL}
+;[difftool]
+  ;path = nvim
+[mergetool "vimdiff3"]
+  path = nvim
 [alias]
   a = add
   aa = add .
-  lp = log --patch --color=always
-  lg = log --graph --color=always
-  lgo = log --graph --oneline --color=always
-  lgp = log --graph --patch --color=always
-  lol = log --oneline --color=always
-  lds = log --stat --color=always
+  lp = log --patch
+  lg = log --graph --decorate
+  lgo = log --graph --oneline --decorate
+  lol = log --oneline --decorate
   ds = diff --stat --color=always
   st = status
+  fe = fetch
   sts = stash
   co = checkout
   ci = commit
@@ -27,8 +32,21 @@
   re = remote
   dfc = diff --cached
   dfh = diff HEAD
+  dft = difftool
+  mgt = mergetool
+  ft = fetch
+  pu = push
+  pl = pull
 [push]
   default = simple
+#[pager]
+#  lp = less -R
+#  lg = less -R
+#  lgo = less -R
+#  lgp = less -R
+#  lol = less -R
+#  lds = less -R
+#  ds = less -R
 [color]
   pager = true
   ui = true
