@@ -1,5 +1,5 @@
 #!/bin/bash
-#2009-14-16 tiagobrait
+#2009-14-16-17 tiagobrait
 
 
 #if we are on a non-interactive shell, skip this whole novel
@@ -60,12 +60,3 @@ __set_prompts_nocolor(){
     PS3="?> "
     PS4='+ ${BASH_SOURCE}:${LINENO}:${FUNCNAME}> '
 }
-
-case ${TERM} in
-  uxterm*|xterm*|rxvt*|aterm*|st*|kterm|gnome*|linux*|Eterm|screen)
-    export PROMPT_COMMAND="__set_prompts"
-      ;;
-  *)
-    export PROMPT_COMMAND="__set_prompts_nocolor"
-      ;;
-esac
