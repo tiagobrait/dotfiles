@@ -1,0 +1,46 @@
+[global]
+  monitor = 0
+  follow = keyboard
+  geometry = "0x5-5+5"
+  indicate_hidden = yes
+  shrink = no
+  transparency = 80
+  padding = 9
+  horizontal_padding = 9
+  frame_width = 3
+  frame_color = "#a09f93"
+  separator_color = frame
+  sort = yes
+  idle_treshold = 300
+  font = DejaVu Sans 12
+  markup = full
+  format = "<b>%a - %s %p</b>\n%b"
+  alignment = left
+  word_wrap = yes
+  stack_duplicates = true
+  icon_position = left
+  max_icon_size = 76
+  icon_folders = /usr/share/icons/Arc/emblems/32/:/usr/share/icons/Arc/status/32/:/usr/share/icons/Arc/devices/32/
+  icon_path = /usr/share/icons/Arc/emblems/32/:/usr/share/icons/Arc/status/32/:/usr/share/icons/Arc/devices/32/
+
+[shortcuts]
+  close = mod4+backslash
+  close_all = mod4+shift+backslash
+  history = mod4+shift+slash
+
+[urgency_low]
+  background = "#181818"
+  foreground = "#f8f8f8"
+  timeout = 60
+  icon = /usr/share/icons/Arc/status/32/messagebox_info.png
+
+[urgency_normal]
+  background = "#181818"
+  foreground = "#7cafc2"
+  timeout = 60
+  icon = /usr/share/icons/Arc/status/32/messagebox_info.png
+
+[urgency_critical]
+  background = "#181818"
+  foreground = "#ab4642"
+  icon = /usr/share/icons/Arc/status/32/messagebox_critical.png

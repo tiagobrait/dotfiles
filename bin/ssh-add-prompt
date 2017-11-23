@@ -1,0 +1,13 @@
+#!/bin/bash
+#2014 Tiago Brait
+#lauch ssh-add in a separate xterm window, used for prompting passphrase at
+#wm startup
+
+[[ -z "$SSH_AGENT_PID" ]] && exit 1
+
+#70x6 is 424x82px
+
+xterm -bg black -fg white -class 'ssh_add_prompt' +ls\
+    -title 'Enter your ssh key passphrase'\
+    -fa 'DejaVu Sans Mono:style=Book' -fs 10\
+    -geometry 70x6+748+499 -e ssh-add

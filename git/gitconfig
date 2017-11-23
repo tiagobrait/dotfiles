@@ -1,14 +1,15 @@
 [user]
-  name = {NAME}
-  email = {EMAIL}
-  signingkey = {KEY}
+  name = Tiago Brait
+  email = tiagobrait@gmail.com
+  signingkey = 3FB61B89
 [core]
-  editor = {EDITOR}
-  pager = {PAGER}
+  editor = nvim
+  pager = /usr/bin/less -R
+	excludesfile = /home/tiagobrait/.gitignore
 [diff]
-  tool = {DIFTOOL}
+  tool = vimdiff3
 [merge]
-  tool = {DIFTOOL}
+  tool = vimdiff3
 ;[difftool]
   ;path = nvim
 [mergetool "vimdiff3"]
@@ -16,10 +17,13 @@
 [alias]
   a = add
   aa = add .
+  l = log
   lp = log --patch
   lg = log --graph --decorate
+  lga = log --all --graph --decorate
   lgo = log --graph --oneline --decorate
   lol = log --oneline --decorate
+  loa = log --all --oneline --decorate
   ds = diff --stat --color=always
   st = status
   fe = fetch

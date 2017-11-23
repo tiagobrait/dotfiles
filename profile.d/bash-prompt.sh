@@ -46,17 +46,18 @@ __set_prompts(){
     PS3="[1m?>[0m "
     PS4='+[0m ${BASH_SOURCE}:${LINENO}:${FUNCNAME}>[0m '
 }
+export PROMPT_COMMAND="__set_prompts"
 
-__set_prompts_nocolor(){
-    local RET="$?"
-    if declare -f __git_ps1 > /dev/null; then
-        GIT_PS=$(__git_ps1 " %s")
-    else
-        GIT_PS=''
-    fi
-    [[ $RET -ne 0  ]] && RET="[${RET}]" || RET=''
-    PS1="${RET}[\\u@\\h \\W${GIT_PS}]\\$ "
-    PS2=">> "
-    PS3="?> "
-    PS4='+ ${BASH_SOURCE}:${LINENO}:${FUNCNAME}> '
-}
+# __set_prompts_nocolor(){
+    # local RET="$?"
+    # if declare -f __git_ps1 > /dev/null; then
+        # GIT_PS=$(__git_ps1 " %s")
+    # else
+        # GIT_PS=''
+    # fi
+    # [[ $RET -ne 0  ]] && RET="[${RET}]" || RET=''
+    # PS1="${RET}[\\u@\\h \\W${GIT_PS}]\\$ "
+    # PS2=">> "
+    # PS3="?> "
+    # PS4='+ ${BASH_SOURCE}:${LINENO}:${FUNCNAME}> '
+# }

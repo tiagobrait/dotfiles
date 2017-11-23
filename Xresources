@@ -1,0 +1,104 @@
+/*cursor theme*/
+Xcursor.theme: ComixCursors-Black
+Xcursor.size: 32
+
+!FOR DJVU SANS, USE style=Book INSTEAD OF style=Regular
+
+XTerm*loginShell: true
+!*XTerm*termName: xterm-256color
+XTerm*faceName: Inconsolata for Powerline
+XTerm*faceSize: 12
+!XTerm*selectToClipboard: true
+!XTerm*scrollTtyOutput: false
+!XTerm*scrollWithBuffer: true
+!XTerm*scrollTtyKeypress: true
+XTerm*eightBitInput: false
+!XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+UXTerm*loginShell: true
+UXTerm*termName: xterm-256color
+UXTerm*cjk_width:  true
+UXTerm*faceName: DejaVu Sans Mono for Powerline
+UXTerm*faceSize: 10
+UXTerm*selectToClipboard: true
+UXTerm*scrollTtyOutput: false
+UXTerm*scrollWithBuffer: true
+UXTerm*scrollTtyKeypress: true
+UXTerm*eightBitInput: false
+
+URxvt*loginShell: true
+URxvt*termName: rxvt-unicode-256color
+!URxvt*font: xft:DejaVu Sans Mono for Powerline:size=10:style=Book
+URxvt*font: xft:DejaVu Sans Mono for Powerline:size=10:style=Book:atialiasing=1
+URxvt*scrollBar: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt*perl-ext-common: default,matcher,selection-to-clipboard,tabbedex
+URxvt*tabbed.autohide: true
+URxvt*url-launcher: /usr/bin/chromium
+URxvt*matcher.button: 1
+URxvt*letterSpace: -1
+
+/*rofi opts*/
+
+rofi.font:          DejaVu Sans Mono Bold 10
+rofi.modi:          window,run,ssh
+rofi.terminal:      i3-sensible-terminal
+rofi.width:         100
+rofi.lines:         2
+rofi.columns:       1
+rofi.location:      1
+rofi.sidebar-mode:  true
+rofi.color-enabled: true
+! State:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
+rofi.color-normal: #181818, #f8f8f8, #181818, #f8f8f8, #181818
+rofi.color-urgent: #181818, #ab4642, #181818, #ab4642, #181818
+rofi.color-active: #181818, #7cafc2, #181818, #7cafc2, #181818
+!                  'bg',    'border'
+rofi.color-window: #181818, #f8f8f8
+
+! rofi.color-window: #222222, #f8f8f8, #555555
+! rofi.color-normal: #222222, #aaaaaa, #222222, #0088cc, #f8f8f8
+! rofi.color-active: #222222, #ffffff, #222222, #888888, #f8f8f8
+! rofi.color-urgent: #222222, #900000, #222222, #900000, #f8f8f8
+! Base16 Default
+! Scheme: Chris Kempson (http://chriskempson.com)
+
+#define base00 #181818
+#define base01 #282828
+#define base02 #383838
+#define base03 #585858
+#define base04 #b8b8b8
+#define base05 #d8d8d8
+#define base06 #e8e8e8
+#define base07 #f8f8f8
+#define base08 #ab4642
+#define base09 #dc9656
+#define base0A #f7ca88
+#define base0B #a1b56c
+#define base0C #86c1b9
+#define base0D #7cafc2
+#define base0E #ba8baf
+#define base0F #a16946
+
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
+
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
+
+*.color8:       base03
+*.color9:       base09
+*.color10:      base01
+*.color11:      base02
+*.color12:      base04
+*.color13:      base06
+*.color14:      base0F
+*.color15:      base07

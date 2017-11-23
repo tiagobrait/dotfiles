@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+echo "${1}"
+echo ":: init"
+git init
+echo ":: add ."
+git add .
+echo ":: commit -m 'initial commit'"
+git commit -m "initial commit"
+
+if [[ -n ${1} ]]; then
+  echo ":: remote add origin ${1}"
+  git remote add origin "${1}"
+fi

@@ -1,0 +1,11 @@
+#! /bin/bash
+INCLUDE="$HOME/etc/c/roberts/cslib"
+CSLIB="$INCLUDE/cslib.a"
+LIBRARIES="$CSLIB -lm"
+for x in $@; do
+  if [ "x$x" = "x-c" ]; then
+    LIBRARIES=""
+    break
+  fi
+done
+gcc -g -I$INCLUDE $* $LIBRARIES

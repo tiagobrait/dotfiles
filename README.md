@@ -1,3 +1,3 @@
-#profile.d stuff
-
-Just my bash profile scripts, need to back those up somewhere.
+# My dotfiles
+---
+My humble dotfiles and general stuff (except for [neo]vim stuff, wich is [here](https://github.com/tiagobrait/vimdir))

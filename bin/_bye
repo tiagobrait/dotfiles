@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/home/tiagobrait/bin/ext-mon off
+sleep 5
+sudo systemctl suspend

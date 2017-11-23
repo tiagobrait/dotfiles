@@ -1,0 +1,29 @@
+#!/bin/bash
+#2014-2017 tiagobrait
+
+xrandr > /dev/null 2>&1
+
+case $1 in
+  'lg')
+    xrandr --output HDMI-0 --off
+    xrandr --addmode VGA-0 1440x900
+    xrandr --output LVDS --mode 1920x1080 --output VGA-0 --mode 1440x900 --left-of LVDS
+    xrandr --output LVDS --primary
+    ;;
+  'ss')
+    xrandr --output HDMI-0 --off
+    xrandr --output LVDS --mode 1920x1080 --output VGA-0 --mode 1280x1024 --left-of LVDS
+    ;;
+  'reu')
+    xrandr --output VGA-0 --off
+    xrandr --output HDMI-0 --mode 1280x800 --same-as LVDS
+    ;;
+  'off')
+    xrandr --output LVDS --mode 1920x1080 --output VGA-0 --off --output HDMI-0 --off
+    ;;
+    *)
+    echo "usage: $(basename ${0}) lg | ss | off"
+    ;;
+esac
+
+~/.fehbg

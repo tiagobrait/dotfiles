@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo pacman -Suy --noconfirm
+pacaur -u --noedit --noconfirm
+sudo pkgfile -u
+sudo pacdiff

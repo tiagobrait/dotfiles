@@ -73,8 +73,8 @@ workspace "1: www" output LVDS
 workspace "2: code" output LVDS
 workspace "3: vbox" output LVDS
 workspace "4: misc" output LVDS
-workspace "6: test" output CRT1
-workspace "7: www2" output CRT1
+workspace "6: test" output VGA-0
+workspace "7: www2" output VGA-0
 # switch to workspace
 bindsym $mod+1 workspace 1: www
 bindsym $mod+2 workspace 2: code
@@ -142,22 +142,21 @@ bar {
         position top
         font pango:FontAwesome Bold 10
   colors {
-    separator #666666
-    background #222222
-    statusline #dddddd
-    focused_workspace #0088CC #0088CC #ffffff
-    active_workspace #333333 #333333 #ffffff
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #2f343a #900000 #ffffff
+    separator #585858
+    background #181818
+    statusline #d8d8d8
+    focused_workspace #7cafc2 #7cafc2 #181818
+    active_workspace #383838 #383838 #f8f8f8
+    inactive_workspace #282828 #282828 #585858
+    urgent_workspace #ab4642 #ab4642 #f8f8f8
   }
 }
 
-
+bindsym Print exec gnome-screenshot -i
 bindsym $mod+period move workspace to output right
 bindsym $mod+comma move workspace to output left
 #browser button
 bindsym XF86HomePage exec /usr/bin/chromium
-bindsym $mod+g exec /usr/bin/gvim
 #volume control
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 1%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 1%+
@@ -173,8 +172,9 @@ bindsym XF86Mail exec /usr/bin/chromium https://gmail.com
 #This is used to get a ssh-add prompt floating when i3 starts
 #It is done launching a xterm with a custom window class
 for_window [class="ssh_add_prompt"] floating enable
-for_window [class="^Spotify$"] floating enable
+# for_window [class="^Spotify$"] floating enable
 for_window [class="Qalculate-gtk"] floating enable
+#for_window [class="TeamViewer"] floating disable
 #for_window [title="^.+\[.+\] - Oracle VM VirtualBox"] floating enable
 #window assignments
 assign [instance="claws-mail" class="Claws-mail"] 1: www
@@ -188,18 +188,17 @@ exec --no-startup-id /usr/bin/xscreensaver -no-splash
 #exec --no-startup-id start-pulseaudio-x11
 
 #autostart apps
-exec --no-startup-id  ~/.fehbg
+# exec --no-startup-id  ~/.fehbg
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/bin/twmnd
-#exec --no-startup-id /usr/bin/wicd-gtk -t
+exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id /usr/bin/wicd-gtk -t
 #exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/parcellite
-exec --no-startup-id /usr/bin/screencloud
 exec --no-startup-id ~/bin/ssh-add-prompt
 exec --no-startup-id i3-msg 'workspace 1: www'
 exec --no-startup-id i3-msg 'layout tabbed'
 
-client.focused #0088CC #0088CC #ffffff #dddddd
-client.focused_inactive #333333 #333333 #888888 #292d2e
-client.unfocused #333333 #333333 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+client.focused #7cafc2 #7cafc2 #181818 #282828
+client.focused_inactive #383838 #383838 #585858 #282828
+client.unfocused #282828 #282828 #585858 #282828
+client.urgent #383838 #ab4642 #f8f8f8 #ab4642
